@@ -1,2 +1,2 @@
 # Web-tekniikat
- JoonaKoulu
+ Joona Koulu
