@@ -1,0 +1,19 @@
+/** Joona Tuohimaa - TIK22SP */
+
+body {
+    background: url("/Images/Koodi3.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    font-size: 20px;
+    font-family: "Audiowide", sans-serif;
+}
+ul a{
+    color: rgb(0, 0, 0);
+}
+.linkit a:hover{
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
