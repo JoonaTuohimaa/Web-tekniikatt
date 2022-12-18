@@ -1,0 +1,13 @@
+/* Joona Tuohimaa - TIK22SP */
+
+/* Taustan säädöt */
+
+body {
+    background: url("/Bootstrap\ -\ WEB\ -\ TEKNIIKAT/Images/Koodi2.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    font-size: 20px;
+    font-family: "Audiowide", sans-serif;
+}
