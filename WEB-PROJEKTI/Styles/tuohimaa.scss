@@ -1,0 +1,142 @@
+/* Joona Tuohimaa - TIK22SP */
+
+/** Sivuston teeman värityksen ja taustanvaihto. / Linkit käytettäviin taustakuviin 
+Pinkki taustakuva: https://pixabay.com/fi/photos/unikot-kukat-alalla-unikot-6476322/
+Sininen taustakuva: https://pixabay.com/fi/photos/kuumailmapallo-j%C3%A4rvi-ilmapallo-2411851/
+*/
+
+/* Tässä käytetään hyödyksi [] - selectoria hakemaan HTML-tiedostosta div elementti joka sisältää class attribuutissa theme-btnpinkki */
+
+div [class*="theme-btnpinkki"]{
+    color: rgb(181, 91, 106);
+    border-radius: 20px;
+    border-color: rgb(111, 23, 60);
+}
+
+/* Tässä käytetään hyödyksi [] - selectoria hakemaan HTML-tiedostosta div elementti joka sisältää class attribuutissa theme-btnsininen */
+
+div [class*="theme-btnsininen"]{
+    color: rgb(0, 0, 255);
+    border-radius: 20px;
+    border-color: rgb(0, 0, 255);
+}
+
+/* Tässä käytetään :root CSS pseudo-classia muuttamaan valitun teeman arvot seuraaville: taustaväri, tekstin väri, taustakuva ja linkkien tekstien väri */
+
+:root,
+:root.theme-btnpinkki{
+    --bg-color:rgb(181, 91, 106);
+    --text-color:rgb(111, 23, 60);
+    --bg-picture:url(../Images/Pink-bg.jpg);
+    --a-color:rgb(111, 23, 60);
+}
+:root.theme-btnsininen{
+    --bg-color: rgb(3, 3, 113);
+    --text-color:rgb(0, 0, 255);
+    --bg-picture:url(../Images/Blue-bg.jpg);
+    --a-color:rgb(0, 0, 255);
+}
+
+
+/* Tässä asetetaan muuttujat joiden arvoina on tietty väri, näitä muuttujia käytetään asettamaan väri dokumenttiin */
+
+$väripinkki : rgb(181, 91, 106);
+$värisininen : rgb(0, 0, 255);
+
+/* Tässä haetaan ensin ID-selectorilla HTML-tiedostosta, jonka jälkeen hyödynnetään :hover CSS-pseudo selectoria muuttamaan arvot sille kun hiiri viedään divin päälle*/
+
+#Teemapinkki:hover{
+    background-color: $väripinkki;
+    opacity: 20%;
+    border: 20px;
+    border-radius: 10px;
+}
+#Teemasininen:hover{
+    background-color: $värisininen;
+    opacity: 20%;
+    border: 20px;
+    border-radius: 10px;
+}
+
+/* Tässä käytetään :hover CSS pseudo-classia, tällä muutetaan lista itemien arvoja kun hiiri viedään niiden päälle */
+
+li:hover{
+    background-color: var(--text-color);
+    border: 10px;
+    border-radius: 10px;
+    opacity: 60%;
+}
+
+/* Tässä käytetään var-muuttujia valitsemaan :root-classilla asetettuja arvoja taustakuvalle, taustavärille ja tekstien värille  */
+
+body{
+    background-color: var(--bg-color);
+    background-image: var(--bg-picture);
+    color: var(--text-color);
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Quicksand';
+    font-size: 22px;
+}
+
+/** Hoverien säätäminen teeman vaihdoille ja tekstin jäsentämistä */ 
+
+/* Tässä käytetään var-muuttujaa hyödyksi hakemalla värit suoraan jo asetettujen arvojen mukaan */
+
+.nav-link{
+    color: var(--a-color);
+}
+
+/* Käytetään child selectoria kaikkiin lista itemien lapsina oleviin linkkeihin, käytetään muuttujan arvoja */
+
+li > a:hover{
+    color: var(--a-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+}
+
+p{
+    padding-top: 15px;
+    text-align: justify;
+}
+
+/** Tietovisan muotoilut */
+
+#Visa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Käytetään var-muuttujaa hyödyksi hakemalla värit suoraan jo asetettujen arvojen mukaan */
+
+button{
+    opacity: 50%;
+    background: none;
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+/* Käytetään + selectoria valitsemaan anchor elementistä seuraavan span elementin teksti ja vaihtamaan se teeman värin mukaiseksi */
+
+a + span{
+    color: var(--a-color);
+}
+
+/** Näytöt kapeammat kuin 766px, säädetään footerin paikka erikokoisella näytöllä. */
+
+@media screen and (max-width: 768px) {
+    #footer{
+        position:sticky;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body{
+        font-size: 14px
+    }
+}
